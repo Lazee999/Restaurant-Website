@@ -1,0 +1,225 @@
+$success-color: #10b981;
+$error-color: #ef4444;
+$primary-color: #3b82f6;
+$text-primary: #1f2937;
+$text-secondary: #6b7280;
+$background-primary: #f9fafb;
+$card-background: #ffffff;
+$animation-duration: 0.6s;
+
+.verify-container {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $background-primary;
+    padding: 1rem;
+    background: linear-gradient(135deg,
+            darken($background-primary, 2%) 0%,
+            $background-primary 100%);
+}
+
+.verify-card {
+    max-width: 400px;
+    width: 100%;
+    background: $card-background;
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    transform: translateY(20px);
+    opacity: 0;
+    animation: slideUp $animation-duration ease-out forwards;
+
+    @keyframes slideUp {
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.verify-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.5rem;
+}
+
+.loading-spinner {
+    position: relative;
+    width: 3.5rem;
+    height: 3.5rem;
+    animation: rotate 1s linear infinite;
+
+    &::before {
+        content: "";
+        box-sizing: border-box;
+        position: absolute;
+        inset: 0;
+        border-radius: 50%;
+        border: 3px solid rgba($primary-color, 0.1);
+        border-top-color: $primary-color;
+        animation: spinner 0.8s linear infinite;
+    }
+
+    @keyframes rotate {
+        to {
+            transform: rotate(360deg);
+        }
+    }
+}
+
+.loading-text {
+    color: $text-secondary;
+    font-size: 1.125rem;
+    font-weight: 500;
+    margin-top: 1rem;
+}
+
+// Status Icons
+.status-icon {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    animation: scaleIn 0.5s ease-out;
+
+    @keyframes scaleIn {
+        from {
+            transform: scale(0);
+        }
+
+        to {
+            transform: scale(1);
+        }
+    }
+
+    &.success {
+        background-color: rgba($success-color, 0.1);
+
+        svg {
+            color: $success-color;
+            animation: checkmark 0.4s ease-out 0.2s both;
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            inset: -5px;
+            border-radius: 50%;
+            border: 2px solid $success-color;
+            opacity: 0;
+            animation: ripple 1s ease-out;
+        }
+    }
+
+    &.error {
+        background-color: rgba($error-color, 0.1);
+
+        svg {
+            color: $error-color;
+            animation: shake 0.4s ease-out;
+        }
+    }
+}
+
+// Status Text
+.status-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: $text-primary;
+    margin: 0;
+
+    &.success {
+        color: $success-color;
+    }
+
+    &.error {
+        color: $error-color;
+    }
+}
+
+.status-message {
+    color: $text-secondary;
+    font-size: 1rem;
+    margin: 0;
+    opacity: 0;
+    animation: fadeIn 0.3s ease-out 0.4s forwards;
+}
+
+// Animations
+@keyframes checkmark {
+    0% {
+        transform: scale(0);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes shake {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-5px);
+    }
+
+    75% {
+        transform: translateX(5px);
+    }
+}
+
+@keyframes ripple {
+    0% {
+        transform: scale(1);
+        opacity: 0.4;
+    }
+
+    100% {
+        transform: scale(1.4);
+        opacity: 0;
+    }
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+@media (max-width: 640px) {
+    .verify-card {
+        margin: 1rem;
+        padding: 1.5rem;
+    }
+
+    .status-icon {
+        width: 3rem;
+        height: 3rem;
+    }
+
+    .status-title {
+        font-size: 1.25rem;
+    }
+
+    .status-message {
+        font-size: 0.875rem;
+    }
+}

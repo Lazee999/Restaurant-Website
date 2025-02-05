@@ -1,0 +1,76 @@
+.add {
+    margin: 100px auto 50px;
+    padding: 0 30px;
+    max-width: 1200px;
+
+    form {
+        background: #fff;
+        border-radius: 12px;
+        padding: 30px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    }
+
+    .add-img-upload {
+        img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 2px dashed #e0e0e0;
+            padding: 10px;
+            transition: all 0.3s ease;
+
+            &:hover {
+                border-color: #48bb78;
+                transform: scale(1.02);
+            }
+        }
+    }
+
+    .add-product-name,
+    .add-product-description,
+    .add-category-price {
+
+        input,
+        textarea,
+        select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+
+            &:focus {
+                border-color: #48bb78;
+                box-shadow: 0 0 0 3px rgba(72, 187, 120, 0.1);
+            }
+        }
+    }
+
+    .add-category-price {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .add-btn {
+        width: 100%;
+        max-width: 200px;
+        margin-top: 50px;
+        padding: 12px;
+        background: linear-gradient(135deg, #48bb78, #38a169);
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        font-size: 14px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+        &:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(72, 187, 120, 0.3);
+        }
+    }
+}

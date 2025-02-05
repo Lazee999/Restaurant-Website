@@ -1,0 +1,23 @@
+.food-display {
+    margin-top: 30px;
+}
+
+.foof-display h2 {
+    font-size: max(2vw, 24px);
+    font-weight: 600;
+}
+
+.food-display-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    margin-top: 50px;
+    gap: 30px;
+    row-gap: 50px;
+}
+
+.food-display hr {
+    margin: 20px 0px;
+    height: 2px;
+    background-color: #e4e4e4;
+    border: none;
+}

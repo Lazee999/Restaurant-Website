@@ -1,0 +1,192 @@
+// .header {
+//     height: 34vw;
+//     margin: 30px auto;
+//     background: url('/header_img.png');
+//     // background: url('/header_img2.png');
+//     background-size: contain;
+//     position: relative;
+
+//     .header-contents {
+//         position: absolute;
+//         display: flex;
+//         flex-direction: column;
+//         align-items: start;
+//         gap: 1.5vw;
+//         max-width: 50%;
+//         bottom: 10%;
+//         left: 6vw;
+//         animation: fadeIn 3s;
+
+//         h2 {
+//             font-size: 500;
+//             color: white;
+//             font-size: max(4.4vw, 22px);
+//         }
+
+//         p {
+//             color: white;
+//             font-size: 1vw;
+//         }
+
+//         button {
+//             border: none;
+//             color: #747474;
+//             font-weight: 500;
+//             padding: 1vw 2.3vw;
+//             background-color: white;
+//             font-size: max(1vw, 13px);
+//             border-radius: 50px;
+//         }
+//     }
+
+//     @media (max-width: 1050px) {
+//         height: 38vw;
+
+//         .header-contents {
+//             max-width: 45%;
+//         }
+//     }
+
+//     @media (max-width: 750px) {
+//         .header-contents {
+//             max-width: 65%;
+
+//             p {
+//                 display: none;
+//             }
+
+//             button {
+//                 padding: 2vw 4vw;
+//             }
+//         }
+//     }
+// }
+$primary-color: #35d866;
+$secondary-color: #ff8e8e;
+$text-color: #fff;
+$overlay-color: rgba(0, 0, 0, 0.4);
+
+.header {
+    height: 34vw;
+    margin: 30px auto;
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+
+    .header-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        transition: opacity 2.5s ease-in-out;
+        z-index: -1;
+    }
+
+    .header-contents {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        gap: 1.5vw;
+        max-width: 50%;
+        bottom: 10%;
+        left: 6vw;
+        animation: fadeIn 4s;
+
+        h2 {
+            font-weight: 500;
+            color: $text-color;
+            font-size: max(4.4vw, 22px);
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        p {
+            color: $text-color;
+            font-size: max(1.2vw, 14px);
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        button {
+            border: none;
+            color: white; // White text for better contrast
+            font-weight: 500;
+            padding: 1vw 2.3vw;
+            font-size: max(1vw, 13px);
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+
+            &:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+            }
+        }
+
+    }
+
+    .smart-cycle-buttons {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 10px;
+        z-index: 2;
+
+        button {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            border: none;
+            background-color: rgba(255, 255, 255, 0.7);
+            cursor: pointer;
+            transition: all 0.3s ease;
+
+            &.active {
+                background-color: $primary-color;
+                transform: scale(1.2);
+            }
+
+            &:hover {
+                background-color: $primary-color;
+            }
+        }
+
+    }
+
+    @media (max-width: 1050px) {
+        height: 38vw;
+
+        .header-contents {
+            max-width: 45%;
+        }
+    }
+
+    @media (max-width: 750px) {
+        .header-contents {
+            max-width: 65%;
+
+            p {
+                display: none;
+            }
+
+            button {
+                padding: 2vw 4vw;
+            }
+        }
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}

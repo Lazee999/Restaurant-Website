@@ -1,0 +1,82 @@
+.list {
+    margin: 100px auto 50px;
+    padding: 0 30px;
+    max-width: 1200px;
+
+    .filter-section {
+        margin-bottom: 30px;
+
+        select {
+            padding: 10px 15px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            background: #fff;
+            font-size: 14px;
+            cursor: pointer;
+        }
+    }
+
+    .list-table {
+        background: #fff;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+
+        .title {
+            background: #2a3042;
+            color: #fff;
+            padding: 15px 20px;
+            display: grid;
+            grid-template-columns: 100px 1fr 1fr 1fr 1fr 50px;
+            gap: 20px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .list-table-format {
+            padding: 15px 20px;
+            display: grid;
+            grid-template-columns: 100px 1fr 1fr 1fr 1fr 50px;
+            gap: 20px;
+            align-items: center;
+            border-bottom: 1px solid #f0f0f0;
+            transition: all 0.3s ease;
+
+            &:hover {
+                background: #f8f9fa;
+            }
+
+            img {
+                width: 80px;
+                height: 80px;
+                object-fit: cover;
+                border-radius: 8px;
+            }
+
+            p {
+                margin: 0;
+                font-size: 14px;
+                color: #4a5568;
+            }
+
+            .cursor {
+                color: #e53e3e;
+                cursor: pointer;
+                font-weight: 500;
+                transition: all 0.3s ease;
+
+                &:hover {
+                    transform: scale(1.1);
+                }
+            }
+
+            &.main-food {
+                background: #f0fff4;
+            }
+
+            &.healthy-food {
+                background: #f0f4ff;
+            }
+        }
+    }
+}

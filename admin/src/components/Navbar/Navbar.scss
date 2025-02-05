@@ -1,0 +1,110 @@
+$navbar-height: 70px;
+$primary-color: #2a3042;
+$accent-color: #4a5568;
+$text-color: #fff;
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: $navbar-height;
+    background: $primary-color;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+    transition: left 0.3s ease;
+
+    .navbar-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 100%;
+        padding: 0 30px;
+        max-width: 1400px;
+        margin: 0 auto;
+
+        .left-section {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+
+            .logo {
+
+                width: 40%;
+                border-radius: 8px;
+            }
+
+            .title {
+                align-items: center;
+                color: $text-color;
+                font-size: 1.4rem;
+                font-weight: 500;
+                margin: 0;
+                margin-left: 5rem;
+            }
+        }
+
+        .right-section {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+
+            .search-bar {
+                input {
+                    padding: 10px 15px;
+                    border: none;
+                    border-radius: 8px;
+                    background: rgba(255, 255, 255, 0.1);
+                    color: $text-color;
+                    font-size: 14px;
+                    width: 250px;
+                    transition: all 0.3s ease;
+
+                    &::placeholder {
+                        color: rgba(255, 255, 255, 0.7);
+                    }
+
+                    &:focus {
+                        outline: none;
+                        background: rgba(255, 255, 255, 0.2);
+                    }
+                }
+            }
+
+            .profile {
+                display: flex;
+                align-items: center;
+                gap: 15px;
+
+                img {
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 50%;
+                    object-fit: cover;
+                    border: 2px solid rgba(255, 255, 255, 0.1);
+                }
+
+                .profile-info {
+                    display: flex;
+                    flex-direction: column;
+
+                    .name {
+                        color: $text-color;
+                        font-size: 0.9rem;
+                        font-weight: 500;
+                    }
+
+                    .role {
+                        color: rgba(255, 255, 255, 0.7);
+                        font-size: 0.8rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// When sidebar is collapsed
+.sidebar.collapsed~.navbar {
+    left: 80px;
+}

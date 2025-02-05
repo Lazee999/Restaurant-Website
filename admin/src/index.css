@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Outfit&display=swap');
+
+body {
+    background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
+}
+
+.main-content {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    margin: 100px auto;
+    padding: 30px;
+    max-width: 1200px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Outfit';
+}
+
+.body {
+    min-height: 100vh;
+    background-color: #fcfcfc;
+}
+
+.a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.hr {
+    border: none;
+    height: 1px;
+    background-color: white;
+}
+
+.app-content {
+    display: flex;
+}

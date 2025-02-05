@@ -1,0 +1,16 @@
+.healthy-display {
+  margin-top: 20px;
+}
+.healthy-display h2 {
+  font-size: max(1.5vw, 20px);
+  font-weight: 400;
+  color: #124556;
+}
+.healthy-display .healthy-display-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  justify-items: center;
+  margin-top: 30px;
+  gap: 30px;
+  row-gap: 50px;
+}/*# sourceMappingURL=HealthyDisplay.css.map */
