@@ -11,7 +11,7 @@ A dynamic and responsive restaurant website built with modern web technologies t
 
 ## 🖥️ Technologies Used
 
-- **Frontend:** ⚛️ React, 🎨 Tailwind CSS
+- **Frontend:** ⚛️ React, Axios, SCSS 🎨 
 - **Backend:** 🖥️ Node.js, 🚀 Express
 - **Database:** 🗄️ MongoDB
 - **Version Control:** 🗂️ Git, 🔗 GitHub
