@@ -1,6 +1,6 @@
 # 🍽️ Restaurant Management Website 🍴
 
-A dynamic and responsive restaurant website built with modern web technologies to enhance online presence and operational efficiency. 🚀
+This is a full-stack food ordering application with an integrated payment gateway. Users can browse food items, place orders, and make payments using Stripe. The project includes a React frontend, Node.js backend, and MongoDB database. 🚀
 
 ## ✨ Features
 
