@@ -13,4 +13,10 @@
   margin-top: 30px;
   gap: 30px;
   row-gap: 50px;
+}
+.healthy-display hr {
+  margin: 20px 0px;
+  height: 2px;
+  background-color: #e4e4e4;
+  border: none;
 }/*# sourceMappingURL=HealthyDisplay.css.map */

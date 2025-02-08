@@ -1,225 +1,93 @@
-$success-color: #10b981;
-$error-color: #ef4444;
-$primary-color: #3b82f6;
-$text-primary: #1f2937;
-$text-secondary: #6b7280;
-$background-primary: #f9fafb;
-$card-background: #ffffff;
-$animation-duration: 0.6s;
+// Verify.scss
 
 .verify-container {
-    min-height: 100vh;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: $background-primary;
-    padding: 1rem;
-    background: linear-gradient(135deg,
-            darken($background-primary, 2%) 0%,
-            $background-primary 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f9f9f9;
+  padding: 20px;
 }
 
 .verify-card {
-    max-width: 400px;
-    width: 100%;
-    background: $card-background;
-    border-radius: 1rem;
-    padding: 2rem;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
-    transform: translateY(20px);
-    opacity: 0;
-    animation: slideUp $animation-duration ease-out forwards;
-
-    @keyframes slideUp {
-        to {
-            transform: translateY(0);
-            opacity: 1;
-        }
-    }
-
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+  transform: translateY(20px);
+  opacity: 0;
+  animation: slideUp 0.6s ease-out forwards;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  
 }
 
 .verify-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .loading-spinner {
-    position: relative;
-    width: 3.5rem;
-    height: 3.5rem;
-    animation: rotate 1s linear infinite;
+  width: 50px;
+  height: 50px;
+  border: 5px solid #e0e0e0;
+  border-top: 5px solid #6c63ff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 20px;
+}
 
-    &::before {
-        content: "";
-        box-sizing: border-box;
-        position: absolute;
-        inset: 0;
-        border-radius: 50%;
-        border: 3px solid rgba($primary-color, 0.1);
-        border-top-color: $primary-color;
-        animation: spinner 0.8s linear infinite;
-    }
-
-    @keyframes rotate {
-        to {
-            transform: rotate(360deg);
-        }
-    }
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .loading-text {
-    color: $text-secondary;
-    font-size: 1.125rem;
-    font-weight: 500;
-    margin-top: 1rem;
+  font-size: 1.1rem;
+  color: #666;
 }
 
-// Status Icons
 .status-icon {
-    width: 4rem;
-    height: 4rem;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    animation: scaleIn 0.5s ease-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+  background-color: #f0f0f0;
 
-    @keyframes scaleIn {
-        from {
-            transform: scale(0);
-        }
+  &.success {
+    background-color: #d4edda;
+    color: #28a745;
+  }
 
-        to {
-            transform: scale(1);
-        }
-    }
-
-    &.success {
-        background-color: rgba($success-color, 0.1);
-
-        svg {
-            color: $success-color;
-            animation: checkmark 0.4s ease-out 0.2s both;
-        }
-
-        &::after {
-            content: '';
-            position: absolute;
-            inset: -5px;
-            border-radius: 50%;
-            border: 2px solid $success-color;
-            opacity: 0;
-            animation: ripple 1s ease-out;
-        }
-    }
-
-    &.error {
-        background-color: rgba($error-color, 0.1);
-
-        svg {
-            color: $error-color;
-            animation: shake 0.4s ease-out;
-        }
-    }
+  &.error {
+    background-color: #f8d7da;
+    color: #dc3545;
+  }
 }
 
-// Status Text
 .status-title {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: $text-primary;
-    margin: 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
 
-    &.success {
-        color: $success-color;
-    }
+  &.success {
+    color: #28a745;
+  }
 
-    &.error {
-        color: $error-color;
-    }
+  &.error {
+    color: #dc3545;
+  }
 }
 
 .status-message {
-    color: $text-secondary;
-    font-size: 1rem;
-    margin: 0;
-    opacity: 0;
-    animation: fadeIn 0.3s ease-out 0.4s forwards;
-}
-
-// Animations
-@keyframes checkmark {
-    0% {
-        transform: scale(0);
-    }
-
-    50% {
-        transform: scale(1.2);
-    }
-
-    100% {
-        transform: scale(1);
-    }
-}
-
-@keyframes shake {
-
-    0%,
-    100% {
-        transform: translateX(0);
-    }
-
-    25% {
-        transform: translateX(-5px);
-    }
-
-    75% {
-        transform: translateX(5px);
-    }
-}
-
-@keyframes ripple {
-    0% {
-        transform: scale(1);
-        opacity: 0.4;
-    }
-
-    100% {
-        transform: scale(1.4);
-        opacity: 0;
-    }
-}
-
-@keyframes fadeIn {
-    to {
-        opacity: 1;
-    }
-}
-
-@media (max-width: 640px) {
-    .verify-card {
-        margin: 1rem;
-        padding: 1.5rem;
-    }
-
-    .status-icon {
-        width: 3rem;
-        height: 3rem;
-    }
-
-    .status-title {
-        font-size: 1.25rem;
-    }
-
-    .status-message {
-        font-size: 0.875rem;
-    }
+  font-size: 1rem;
+  color: #555;
 }
