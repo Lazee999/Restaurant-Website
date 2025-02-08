@@ -70,5 +70,5 @@ This project is licensed under the MIT License. 📄
 For any inquiries, feel free to reach out:
 
 - 💻 GitHub: [Lazee999](https://github.com/Lazee999)
-- 📧 Email: your_email@example.com
+- 📧 Email: lasithbhanuka999@gmail.com
 
