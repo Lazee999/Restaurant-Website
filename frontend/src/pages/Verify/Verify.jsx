@@ -6,10 +6,11 @@ import toast from 'react-hot-toast';
 import './Verify.scss';
 
 const Verify = () => {
-    const { orderId } = useParams();
+    
     const [searchParams] = useSearchParams();
     const navigate = useNavigate();
     const success = searchParams.get('success');
+    const orderId = searchParams.get('orderId');
     const { url } = useContext(StoreContext);
     const [isLoading, setIsLoading] = useState(true);
 
