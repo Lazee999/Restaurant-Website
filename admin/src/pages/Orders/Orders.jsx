@@ -13,12 +13,11 @@ const Orders = ({ url }) => {
         averageOrderValue: 0,
     });
 
-    // Fetch all orders
     const fetchAllOrders = async () => {
         try {
             const response = await axios.get(url + '/api/order/list');
             if (response.data.success) {
-                const sortedOrders = response.data.data.sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt));
+                const sortedOrders = response.data.data.sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt)).reverse();
                 setOrders(sortedOrders);
                 updateAnalytics(sortedOrders, filter);
             } else {
