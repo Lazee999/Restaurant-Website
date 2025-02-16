@@ -1,6 +1,6 @@
 .orders-container {
     max-width: 1200px;
-    margin: auto;
+    margin: 80px auto;
     padding: 20px;
     background: #1e1e1e;
     border-radius: 12px;
@@ -10,7 +10,7 @@
 
     h3 {
         text-align: center;
-        margin-bottom: 15px;
+        margin-bottom: 20px;
         font-size: 24px;
         font-weight: 600;
     }
@@ -18,14 +18,14 @@
     .search-bar {
         width: 100%;
         padding: 12px;
-        margin-bottom: 15px;
+        margin-bottom: 20px;
         border: none;
         border-radius: 8px;
         font-size: 16px;
         outline: none;
         background: #333;
         color: #fff;
-        transition: 0.3s;
+        transition: box-shadow 0.3s;
 
         &:focus {
             box-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
@@ -36,7 +36,8 @@
         display: flex;
         justify-content: space-between;
         margin-bottom: 20px;
-        
+        gap: 10px;
+
         button {
             padding: 8px 15px;
             border: none;
@@ -44,32 +45,34 @@
             cursor: pointer;
             background: #444;
             color: white;
-            transition: 0.3s;
+            transition: background 0.3s, transform 0.3s;
             font-size: 14px;
 
             &:hover, &.active {
                 background: #ff7b00;
-                color: #fff;
                 transform: scale(1.05);
             }
         }
     }
 
     .analytics {
-        display: flex;
+        display: none; // Hidden as per your requirement
         justify-content: space-between;
-        background: #252525;
+        background: #2a3042;
         padding: 15px;
         border-radius: 8px;
         box-shadow: inset 0 0 8px rgba(255, 255, 255, 0.1);
+        margin-bottom: 20px;
 
         h4 {
             font-size: 18px;
             font-weight: 600;
+            margin-bottom: 10px;
         }
 
         p {
             font-size: 14px;
+            margin: 0;
         }
     }
 
@@ -77,18 +80,18 @@
         display: grid;
         grid-template-columns: 1fr;
         gap: 15px;
-        margin-top: 20px;
+        min-height: 500px; // Fixed height to prevent layout shift
     }
 
     .order-item {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        background: #292929;
+        background: #107d7dac;
         padding: 15px;
         border-radius: 8px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-        transition: 0.3s;
+        transition: transform 0.3s, background 0.3s;
 
         &:hover {
             transform: scale(1.02);
@@ -98,6 +101,7 @@
         img {
             width: 40px;
             height: 40px;
+            margin-right: 15px;
         }
 
         .order-item-food {
@@ -130,10 +134,12 @@
 
             &.out-for-delivery {
                 background: #007bff;
+                color: white;
             }
 
             &.delivered {
                 background: #28a745;
+                color: white;
             }
         }
 
@@ -145,6 +151,7 @@
             border: none;
             font-size: 14px;
             cursor: pointer;
+            transition: background 0.3s;
 
             &:hover {
                 background: #ff7b00;
@@ -155,8 +162,10 @@
     .pagination {
         display: flex;
         justify-content: center;
+        align-items: center;
         gap: 10px;
         margin-top: 20px;
+        padding: 10px 0;
 
         button {
             padding: 8px 15px;
@@ -165,8 +174,9 @@
             cursor: pointer;
             background: #444;
             color: white;
-            transition: 0.3s;
+            transition: background 0.3s;
             font-size: 14px;
+            min-width: 80px;
 
             &:hover {
                 background: #ff7b00;
@@ -176,6 +186,11 @@
                 background: #666;
                 cursor: not-allowed;
             }
+        }
+
+        span {
+            font-size: 14px;
+            color: #fff;
         }
     }
 }
