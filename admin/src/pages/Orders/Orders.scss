@@ -1,62 +1,243 @@
-.order-item {
-    background: #fff;
-    border-radius: 12px;
+// .order-item {
+//     background: #fff;
+//     border-radius: 12px;
+//     padding: 20px;
+//     margin: 20px 0;
+//     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+//     display: grid;
+//     grid-template-columns: 100px 1fr 1fr 1fr 1fr;
+//     gap: 20px;
+//     align-items: center;
+//     transition: all 0.3s ease;
+
+//     &:hover {
+//         transform: translateY(-2px);
+//         box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
+//     }
+
+//     img {
+//         width: 80px;
+//         height: 80px;
+//         object-fit: cover;
+//         border-radius: 8px;
+//     }
+
+//     .order-item-food,
+//     .order-item-name {
+//         font-weight: 500;
+//         color: #2a3042;
+//     }
+
+//     .order-item-address {
+//         color: #718096;
+//         font-size: 14px;
+//     }
+
+//     select {
+//         padding: 8px 12px;
+//         border: 1px solid #e0e0e0;
+//         border-radius: 8px;
+//         background: #fff;
+//         font-size: 14px;
+//         cursor: pointer;
+//         transition: all 0.3s ease;
+
+//         &:focus {
+//             border-color: #48bb78;
+//             box-shadow: 0 0 0 3px rgba(72, 187, 120, 0.1);
+//         }
+//     }
+// }
+
+// @media (max-width: 1000px) {
+//     .order-item {
+//         grid-template-columns: 1fr;
+//         padding: 15px;
+
+//         img {
+//             width: 60px;
+//             height: 60px;
+//         }
+//     }
+// }
+
+
+
+    // Global Variables
+$primary-color: #007bff;
+$secondary-color: #6c757d;
+$success-color: #28a745;
+$danger-color: #dc3545;
+$background-color: #f9f9f9;
+$text-color: #333;
+
+// Reset and Base Styles
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.order.add {
     padding: 20px;
-    margin: 20px 0;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-    display: grid;
-    grid-template-columns: 100px 1fr 1fr 1fr 1fr;
-    gap: 20px;
-    align-items: center;
-    transition: all 0.3s ease;
+    background-color: $background-color;
+    min-height: 100vh;
+    color: $text-color;
 
-    &:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
+    h3 {
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+        color: $primary-color;
+        text-align: center;
+    }
+}
+
+// Analytics Section
+.analytics {
+    margin-bottom: 30px;
+    padding: 20px;
+    border-radius: 10px;
+    background: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+    h4 {
+        font-size: 1.4rem;
+        margin-bottom: 15px;
+        color: $primary-color;
     }
 
-    img {
-        width: 80px;
-        height: 80px;
-        object-fit: cover;
-        border-radius: 8px;
+    .filter-buttons {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 15px;
+
+        button {
+            padding: 8px 15px;
+            border: none;
+            border-radius: 5px;
+            background: $secondary-color;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+
+            &.active {
+                background: $primary-color;
+            }
+
+            &:hover {
+                opacity: 0.9;
+            }
+        }
     }
 
-    .order-item-food,
-    .order-item-name {
-        font-weight: 500;
-        color: #2a3042;
-    }
+    p {
+        font-size: 1rem;
+        margin: 5px 0;
 
-    .order-item-address {
-        color: #718096;
-        font-size: 14px;
-    }
-
-    select {
-        padding: 8px 12px;
-        border: 1px solid #e0e0e0;
-        border-radius: 8px;
-        background: #fff;
-        font-size: 14px;
-        cursor: pointer;
-        transition: all 0.3s ease;
-
-        &:focus {
-            border-color: #48bb78;
-            box-shadow: 0 0 0 3px rgba(72, 187, 120, 0.1);
+        &:nth-child(odd) {
+            font-weight: bold;
         }
     }
 }
 
-@media (max-width: 1000px) {
-    .order-item {
-        grid-template-columns: 1fr;
-        padding: 15px;
+// Order List
+.order-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
 
-        img {
-            width: 60px;
-            height: 60px;
+.order-item {
+    padding: 15px;
+    border-radius: 10px;
+    background: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    img {
+        width: 50px;
+        height: 50px;
+        object-fit: cover;
+        margin-bottom: 10px;
+    }
+
+    .order-item-food {
+        font-size: 1rem;
+        color: $text-color;
+        margin-bottom: 10px;
+
+        span {
+            margin-right: 5px;
         }
+    }
+
+    .order-item-name {
+        font-size: 1.1rem;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    .order-item-address {
+        font-size: 0.9rem;
+        color: $secondary-color;
+        margin-bottom: 10px;
+
+        p {
+            margin: 2px 0;
+        }
+    }
+
+    .order-item-phone {
+        font-size: 0.9rem;
+        color: $secondary-color;
+        margin-bottom: 10px;
+    }
+
+    p {
+        font-size: 0.9rem;
+        margin: 5px 0;
+
+        &:last-of-type {
+            font-weight: bold;
+            color: $primary-color;
+        }
+    }
+
+    select {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid $secondary-color;
+        border-radius: 5px;
+        font-size: 0.9rem;
+        margin-top: 10px;
+        appearance: none;
+        background: white url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%236c757d'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E") no-repeat right 10px center;
+        background-size: 12px;
+
+        &:focus {
+            outline: none;
+            border-color: $primary-color;
+        }
+    }
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+    .order-list {
+        grid-template-columns: 1fr;
+    }
+
+    .analytics {
+        padding: 15px;
+    }
+
+    .order-item {
+        padding: 10px;
     }
 }
